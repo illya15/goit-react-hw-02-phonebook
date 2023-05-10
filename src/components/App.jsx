@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
-import { Form } from './Form/Form';
+import  { Form } from './Form/Form';
 import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
 
@@ -20,7 +20,7 @@ export class App extends Component {
         contact => contact.name === name
       );
       if (duplicate) {
-        alert('Error!');
+        alert('A customer already exists ');
         return;
       }
       this.setState({
@@ -43,8 +43,16 @@ export class App extends Component {
 
     render() {
       return (
-        <div>
-          <h1>Phonebook</h1>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            color: '#010101',
+          }}
+        >
+          <h2>Phonebook</h2>
           <Form onSubmit={this.addContact} />
           <h2>Contacts</h2>
           <Filter onChange={this.changeFilter} value={this.state.filter} />

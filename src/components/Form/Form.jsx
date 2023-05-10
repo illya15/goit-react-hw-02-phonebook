@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { FormStyle } from './Form.styled';
+import css from './Form.module.css'
 export class Form extends Component {
   state = {
     name: '',
@@ -24,7 +24,7 @@ export class Form extends Component {
 
   render() {
     return (
-      <FormStyle onSubmit={this.handleSubmit}>
+      <form className={css.form} onSubmit={this.handleSubmit}>
         <label>
           Name
           <br />
@@ -38,9 +38,10 @@ export class Form extends Component {
             value={this.state.name}
           />
         </label>
-        <br />
         <label>
-          Number <br />
+          <br />
+          Number
+          <br />
           <input
             type="tel"
             name="number"
@@ -53,7 +54,7 @@ export class Form extends Component {
         </label>
         <br />
         <button type="submit">Add contact</button>
-      </FormStyle>
+      </form>
     );
   }
 }
